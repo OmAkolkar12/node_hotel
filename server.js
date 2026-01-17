@@ -97,6 +97,7 @@
 const express = require('express');
 const db  = require('./db.js');
 const app = express();
+require('dotenv').config();
 
 
 const bodyParser = require('body-parser');
@@ -114,6 +115,8 @@ app.use('/menu',menuRoutes);
 const personRoutes = require('./routes/personroutes.js');
 app.use('/person',personRoutes);
 
-app.listen(3000, () => {
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
   console.log('Server is running on port 3000')
 });
